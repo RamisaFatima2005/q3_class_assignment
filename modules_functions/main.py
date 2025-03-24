@@ -48,5 +48,3 @@ import requests
 
 response = requests.get("https://api.github.com")  # GitHub API se data fetch karna
 print(response.status_code)  # Output = 200 means request successful
-
-
