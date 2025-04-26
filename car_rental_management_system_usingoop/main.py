@@ -39,25 +39,25 @@ class RentalService:
                 return car
         return None
 
-# --- Streamlit App Setup ---
+
 st.title("🚗 Car Rental Management System")
 
-# Session Initialization
+
 if 'service' not in st.session_state:
     st.session_state.service = RentalService()
 
-    # Dummy Cars (added only once)
+    
     st.session_state.service.add_car(RentalCar("Toyota", "Corolla", 2020, 5000))
     st.session_state.service.add_car(RentalCar("Honda", "Civic", 2019, 5500))
     st.session_state.service.add_car(RentalCar("Suzuki", "Swift", 2021, 4500))
 
-# Use service from session state
+
 service = st.session_state.service
 
-# Menu
+
 menu = st.sidebar.selectbox("Choose an option", ["View Available Cars", "Rent a Car", "Add a New Car"])
 
-# View Cars
+
 if menu == "View Available Cars":
     st.header("Available Cars")
     available_cars = service.get_available_cars()
@@ -67,7 +67,7 @@ if menu == "View Available Cars":
     else:
         st.warning("No cars available at the moment!")
 
-# Rent a Car
+
 elif menu == "Rent a Car":
     st.header("Rent a Car")
 
@@ -88,7 +88,7 @@ elif menu == "Rent a Car":
     else:
         st.warning("No cars available for rent!")
 
-# Add Car
+
 elif menu == "Add a New Car":
     st.header("Add a New Car")
     brand = st.text_input("Enter Car Brand")
